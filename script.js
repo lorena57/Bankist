@@ -99,6 +99,12 @@ const deposits = movements.filter(function (mov) {
 });
 
 console.log(deposits);
+
+const withDrawals = movements.filter(function (mov) {
+  return mov < 0;
+});
+
+console.log(withDrawals);
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
