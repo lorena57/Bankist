@@ -79,16 +79,18 @@ const displayMovements = function (movements) {
 };
 displayMovements(account1.movements);
 
-const CreateUserNames = function (user) {
-  const username = user
-    .toLowerCase()
-    .split(' ')
-    .map((name) => name[0])
-    .join('');
-  return username;
+const CreateUserNames = function (accs) {
+  accs.forEach(function (acc) {
+    acc.username = acc.owner
+      .toLowerCase()
+      .split(' ')
+      .map((name) => name[0])
+      .join('');
+  });
 };
 
-console.log(CreateUserNames('Minnie Disney Mouse'));
+CreateUserNames(accounts);
+console.log(accounts);
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
