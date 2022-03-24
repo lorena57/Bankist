@@ -79,14 +79,16 @@ const displayMovements = function (movements) {
 };
 displayMovements(account1.movements);
 
-const user = 'Minnie Disney Mouse';
-const username = user
-  .toLowerCase()
-  .split(' ')
-  .map((name) => name[0])
-  .join('');
+const CreateUserNames = function (user) {
+  const username = user
+    .toLowerCase()
+    .split(' ')
+    .map((name) => name[0])
+    .join('');
+  return username;
+};
 
-console.log(username);
+console.log(CreateUserNames('Minnie Disney Mouse'));
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
