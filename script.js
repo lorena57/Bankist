@@ -106,10 +106,15 @@ const withDrawals = movements.filter(function (mov) {
 
 console.log(withDrawals);
 
-const balance = movements.reduce(function (acc, cur, i, arr) {
-  console.log(`Iteration ${i}: ${acc}`);
-  return acc + cur;
-}, 0);
+//Reduce
+// const balance = movements.reduce(function (acc, cur, i, arr) {
+//   console.log(`Iteration ${i}: ${acc}`);
+//   return acc + cur;
+// }, 0);
+
+//Simplfied Reduce
+
+const balance = movements.reduce((acc, cur) => acc + cur, 0);
 
 console.log(balance);
 /////////////////////////////////////////////////
