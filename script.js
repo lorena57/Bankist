@@ -94,6 +94,14 @@ console.log(accounts);
 
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
+const calcDisplayBalance = function (movements) {
+  const balance = movements.reduce((acc, mov) => acc + mov, 0);
+
+  labelBalance.textContent = `${balance} USD`;
+};
+
+calcDisplayBalance(account1.movements);
+
 const deposits = movements.filter(function (mov) {
   return mov > 0;
 });
@@ -114,9 +122,9 @@ console.log(withDrawals);
 
 //Simplfied Reduce
 
-const balance = movements.reduce((acc, cur) => acc + cur, 0);
+// const balance = movements.reduce((acc, cur) => acc + cur, 0);
 
-console.log(balance);
+// console.log(balance);
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
