@@ -70,7 +70,7 @@ const displayMovements = function (movements) {
         <div class="movements__type movements__type--${type}">${
       i + 1
     } ${type}</div>
-        <div class="movements__value">${mov}</div>
+        <div class="movements__value">$${mov}</div>
       </div>
 `;
 
@@ -97,7 +97,7 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 const calcDisplayBalance = function (movements) {
   const balance = movements.reduce((acc, mov) => acc + mov, 0);
 
-  labelBalance.textContent = `${balance} USD`;
+  labelBalance.textContent = `$${balance}`;
 };
 
 calcDisplayBalance(account1.movements);
@@ -113,6 +113,14 @@ const withDrawals = movements.filter(function (mov) {
 });
 
 console.log(withDrawals);
+
+const calcDisplaySummary = function (movements) {
+  const incomes = movements
+    .filter((mov) => mov > 0)
+    .reduce((acc, mov) => acc + mov, 0);
+  labelSumIn.textContent = `$${incomes}`;
+};
+calcDisplaySummary(account1.movements);
 
 //Reduce
 // const balance = movements.reduce(function (acc, cur, i, arr) {
