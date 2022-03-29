@@ -137,6 +137,18 @@ const calcDisplaySummary = function (movements) {
 };
 calcDisplaySummary(account1.movements);
 
+let currentAccount;
+
+btnLogin.addEventListener('click', function (e) {
+  e.preventDefault();
+
+  currentAccount = accounts.find(
+    (acc) => acc.username === inputLoginUsername.value
+  );
+
+  console.log('LOGIN');
+});
+
 //Reduce
 // const balance = movements.reduce(function (acc, cur, i, arr) {
 //   console.log(`Iteration ${i}: ${acc}`);
