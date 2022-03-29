@@ -106,20 +106,20 @@ const withDrawals = movements.filter(function (mov) {
   return mov < 0;
 });
 
-const calcDisplaySummary = function (movements) {
-  const incomes = movements
+const calcDisplaySummary = function (acc) {
+  const incomes = acc.movements
     .filter((mov) => mov > 0)
     .reduce((acc, mov) => acc + mov, 0);
   labelSumIn.textContent = `$${incomes}`;
 
-  const out = movements
+  const out = acc.movements
     .filter((mov) => mov < 0)
     .reduce((acc, mov) => acc + mov, 0);
   labelSumOut.textContent = `$${Math.abs(out)}`;
 
-  const interest = movements
+  const interest = acc.movements
     .filter((mov) => mov > 0)
-    .map((deposit) => (deposit * 1.2) / 100)
+    .map((deposit) => (deposit * acc.interestRate) / 100)
     .filter((int, i, arr) => {
       return int >= 1;
     })
@@ -150,11 +150,13 @@ btnLogin.addEventListener('click', function (e) {
     //The empty string will be assigned to the inputClosePin and then it will be assigned to inputLoginUsername
     inputLoginUsername.value = inputClosePin.value = '';
 
+    inputClosePin.blur();
+
     displayMovements(currentAccount.movements);
 
     calcDisplayBalance(currentAccount.movements);
 
-    calcDisplayBalance();
+    calcDisplaySummary(currentAccount);
   }
 });
 
