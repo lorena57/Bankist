@@ -90,7 +90,6 @@ const CreateUserNames = function (accs) {
 };
 
 CreateUserNames(accounts);
-console.log(accounts);
 
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
@@ -106,13 +105,9 @@ const deposits = movements.filter(function (mov) {
   return mov > 0;
 });
 
-console.log(deposits);
-
 const withDrawals = movements.filter(function (mov) {
   return mov < 0;
 });
-
-console.log(withDrawals);
 
 const calcDisplaySummary = function (movements) {
   const incomes = movements
@@ -129,7 +124,6 @@ const calcDisplaySummary = function (movements) {
     .filter((mov) => mov > 0)
     .map((deposit) => (deposit * 1.2) / 100)
     .filter((int, i, arr) => {
-      console.log(arr);
       return int >= 1;
     })
     .reduce((acc, int) => acc + int, 0);
@@ -145,8 +139,10 @@ btnLogin.addEventListener('click', function (e) {
   currentAccount = accounts.find(
     (acc) => acc.username === inputLoginUsername.value
   );
-
-  console.log('LOGIN');
+  console.log(currentAccount);
+  if (currentAccount?.pin === Number(inputLoginPin.value)) {
+    console.log('LOGIN');
+  }
 });
 
 //Reduce
@@ -181,10 +177,6 @@ const totalDepositsUSD = movements
   })
   .reduce((acc, mov) => acc + mov, 0);
 
-console.log(totalDepositsUSD);
-
 const firstWithdrawl = movements.find((mov) => mov < 0);
 
 const account = accounts.find((acc) => acc.owner === 'Jessica Davis');
-
-console.log(account);
