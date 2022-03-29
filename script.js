@@ -77,7 +77,6 @@ const displayMovements = function (movements) {
     containerMovements.insertAdjacentHTML('afterbegin', html);
   });
 };
-displayMovements(account1.movements);
 
 const CreateUserNames = function (accs) {
   accs.forEach(function (acc) {
@@ -98,8 +97,6 @@ const calcDisplayBalance = function (movements) {
 
   labelBalance.textContent = `$${balance}`;
 };
-
-calcDisplayBalance(account1.movements);
 
 const deposits = movements.filter(function (mov) {
   return mov > 0;
@@ -129,7 +126,6 @@ const calcDisplaySummary = function (movements) {
     .reduce((acc, int) => acc + int, 0);
   labelSumInterest.textContent = `${interest}`;
 };
-calcDisplaySummary(account1.movements);
 
 let currentAccount;
 
@@ -142,6 +138,23 @@ btnLogin.addEventListener('click', function (e) {
   console.log(currentAccount);
   if (currentAccount?.pin === Number(inputLoginPin.value)) {
     console.log('LOGIN');
+
+    labelWelcome.textContent = `Welcome back, ${
+      currentAccount.owner.split(' ')[0]
+    }`;
+
+    containerApp.style.opacity = 100;
+
+    //Clear input fields
+    //It reads from right to left.
+    //The empty string will be assigned to the inputClosePin and then it will be assigned to inputLoginUsername
+    inputLoginUsername.value = inputClosePin.value = '';
+
+    displayMovements(currentAccount.movements);
+
+    calcDisplayBalance(currentAccount.movements);
+
+    calcDisplayBalance();
   }
 });
 
