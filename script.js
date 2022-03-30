@@ -160,6 +160,10 @@ btnLogin.addEventListener('click', function (e) {
   }
 });
 
+btnTransfer.addEventListener('click', function (e) {
+  e.preventDefault();
+});
+
 //Reduce
 // const balance = movements.reduce(function (acc, cur, i, arr) {
 //   console.log(`Iteration ${i}: ${acc}`);
