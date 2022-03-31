@@ -92,10 +92,10 @@ CreateUserNames(accounts);
 
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
-const calcDisplayBalance = function (movements) {
-  const balance = movements.reduce((acc, mov) => acc + mov, 0);
+const calcDisplayBalance = function (acc) {
+  acc.balance = acc.movements.reduce((acc, mov) => acc + mov, 0);
 
-  labelBalance.textContent = `$${balance}`;
+  labelBalance.textContent = `$${acc.balance}`;
 };
 
 const deposits = movements.filter(function (mov) {
@@ -154,7 +154,7 @@ btnLogin.addEventListener('click', function (e) {
 
     displayMovements(currentAccount.movements);
 
-    calcDisplayBalance(currentAccount.movements);
+    calcDisplayBalance(currentAccount);
 
     calcDisplaySummary(currentAccount);
   }
@@ -162,6 +162,13 @@ btnLogin.addEventListener('click', function (e) {
 
 btnTransfer.addEventListener('click', function (e) {
   e.preventDefault();
+
+  const amount = Number(inputTransferAmount.value);
+  const receiverAcc = accounts.find(
+    (acc) => acc.username === inputTransferAmount.value
+  );
+
+  if (amount > 0 && )
 });
 
 //Reduce
