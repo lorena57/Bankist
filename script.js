@@ -94,7 +94,6 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 const calcDisplayBalance = function (acc) {
   acc.balance = acc.movements.reduce((acc, mov) => acc + mov, 0);
-
   labelBalance.textContent = `$${acc.balance}`;
 };
 
@@ -160,18 +159,28 @@ btnLogin.addEventListener('click', function (e) {
   }
 });
 
-btnTransfer.addEventListener('click', function(e) {
+btnTransfer.addEventListener('click', function (e) {
   e.preventDefault();
+  const amount = Number(inputTransferAmount.value);
+  const receiverAcc = accounts.find(
+    (acc) => acc.username === inputTransferTo.value
+  );
+  inputTransferAmount.value = inputTransferTo.value = '';
 
-const amount = Number(inputTransferAmount.value);
-const receiverAcc = accounts.find(
-  acc => acc.username === inputTransferTo.value
-);
-console.log(amount, receiverAcc);
+  if (
+    amount > 0 &&
+    receiverAcc &&
+    currentAccount.balance >= amount &&
+    receiverAcc?.username !== currentAccount.username
+  ) {
+    // Doing the transfer
+    currentAccount.movements.push(-amount);
+    receiverAcc.movements.push(amount);
 
-if(amount > 0 && currentAccount.balance >= amount && receiverAcc?.username !== currentAccount.username)
-})
-
+    // Update UI
+    updateUI(currentAccount);
+  }
+});
 
 //Reduce
 // const balance = movements.reduce(function (acc, cur, i, arr) {
@@ -188,23 +197,23 @@ if(amount > 0 && currentAccount.balance >= amount && receiverAcc?.username !== c
 /////////////////////////////////////////////////
 // LECTURES
 
-const currencies = new Map([
-  ['USD', 'United States dollar'],
-  ['EUR', 'Euro'],
-  ['GBP', 'Pound sterling'],
-]);
+// const currencies = new Map([
+//   ['USD', 'United States dollar'],
+//   ['EUR', 'Euro'],
+//   ['GBP', 'Pound sterling'],
+// ]);
 
 /////////////////////////////////////////////////
 
-const eurToUsd = 1.1;
+// const eurToUsd = 1.1;
 
-const totalDepositsUSD = movements
-  .filter((mov) => mov > 0)
-  .map((mov, i, arr) => {
-    return mov * eurToUsd;
-  })
-  .reduce((acc, mov) => acc + mov, 0);
+// const totalDepositsUSD = movements
+//   .filter((mov) => mov > 0)
+//   .map((mov, i, arr) => {
+//     return mov * eurToUsd;
+//   })
+//   .reduce((acc, mov) => acc + mov, 0);
 
-const firstWithdrawl = movements.find((mov) => mov < 0);
+// const firstWithdrawl = movements.find((mov) => mov < 0);
 
-const account = accounts.find((acc) => acc.owner === 'Jessica Davis');
+// const account = accounts.find((acc) => acc.owner === 'Jessica Davis')
