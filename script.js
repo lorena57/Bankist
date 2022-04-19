@@ -90,6 +90,14 @@ const CreateUserNames = function (accs) {
 
 CreateUserNames(accounts);
 
+const updateUI = function (acc) {
+  displayMovements(acc.movements);
+
+  calcDisplayBalance(acc);
+
+  calcDisplaySummary(acc);
+};
+
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 const calcDisplayBalance = function (acc) {
@@ -151,11 +159,7 @@ btnLogin.addEventListener('click', function (e) {
 
     inputClosePin.blur();
 
-    displayMovements(currentAccount.movements);
-
-    calcDisplayBalance(currentAccount);
-
-    calcDisplaySummary(currentAccount);
+    updateUI(currentAccount);
   }
 });
 
