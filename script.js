@@ -189,6 +189,8 @@ btnTransfer.addEventListener('click', function (e) {
 btnClose.addEventListener('click', function (e) {
   e.preventDefault();
 
+  inputCloseUsername.value = inputClosePin.value = '';
+
   if (
     inputCloseUsername.value === currentAccount.username &&
     Number(inputClosePin.value) === currentAccount.pin
