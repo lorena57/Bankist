@@ -186,10 +186,13 @@ btnTransfer.addEventListener('click', function (e) {
   }
 });
 
+btnLoan.addEventListener('click', function (e) {
+  e.preventDefault();
+  const amount = Number(inputLoanAmount.value);
+});
+
 btnClose.addEventListener('click', function (e) {
   e.preventDefault();
-
-  inputCloseUsername.value = inputClosePin.value = '';
 
   if (
     inputCloseUsername.value === currentAccount.username &&
@@ -202,6 +205,7 @@ btnClose.addEventListener('click', function (e) {
 
     containerApp.style.opacity = 0;
   }
+  inputCloseUsername.value = inputClosePin.value = '';
 });
 
 //Reduce
