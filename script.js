@@ -198,6 +198,7 @@ btnLoan.addEventListener('click', function (e) {
 
     updateUI(currentAccount);
   }
+  inputLoanAmount.value = '';
 });
 
 btnClose.addEventListener('click', function (e) {
@@ -252,3 +253,9 @@ btnClose.addEventListener('click', function (e) {
 // const firstWithdrawl = movements.find((mov) => mov < 0);
 
 // const account = accounts.find((acc) => acc.owner === 'Jessica Davis')
+
+const accountMovements = accounts.map((acc) => acc.movements);
+console.log(accountMovements);
+
+const allMovements = accountMovements.flat();
+console.log(allMovements);
