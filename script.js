@@ -221,6 +221,15 @@ btnClose.addEventListener('click', function (e) {
   inputCloseUsername.value = inputClosePin.value = '';
 });
 
+let sorted = false;
+
+btnSort.addEventListener('click', function (e) {
+  e.preventDefault();
+
+  displayMovements(currentAccount.movements, !sorted);
+  sorted = !sorted;
+});
+
 //Reduce
 // const balance = movements.reduce(function (acc, cur, i, arr) {
 //   console.log(`Iteration ${i}: ${acc}`);
