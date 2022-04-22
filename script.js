@@ -259,3 +259,10 @@ console.log(accountMovements);
 
 const allMovements = accountMovements.flat();
 console.log(allMovements);
+
+const overallBalance = allMovements.reduce((acc, mov) => acc + mov, 0);
+console.log(overallBalance);
+
+const owners = ['Sam', 'Todd', 'Lia', 'Lisa'];
+
+console.log(owners.sort());
