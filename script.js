@@ -263,6 +263,19 @@ console.log(allMovements);
 const overallBalance = allMovements.reduce((acc, mov) => acc + mov, 0);
 console.log(overallBalance);
 
+//Sort mutates the array//
+
+//Sorting strings
 const owners = ['Sam', 'Todd', 'Lia', 'Lisa'];
 
 console.log(owners.sort());
+
+//Sorting Numbers
+const numberSort = [3000, -650, -200, -130, 70, 900, 350, 1300];
+
+numberSort.sort((a, b) => {
+  if (a > b) return 1;
+  if (b > a) return -1;
+});
+
+console.log(numberSort);
