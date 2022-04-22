@@ -273,9 +273,13 @@ console.log(owners.sort());
 //Sorting Numbers
 const numberSort = [3000, -650, -200, -130, 70, 900, 350, 1300];
 
-numberSort.sort((a, b) => {
-  if (a > b) return 1;
-  if (b > a) return -1;
-});
+// numberSort.sort((a, b) => {
+//   if (a > b) return 1;
+//   if (a < b) return -1;
+// });
+
+//Or you can do:
+
+numberSort.sort((a, b) => a - b);
 
 console.log(numberSort);
