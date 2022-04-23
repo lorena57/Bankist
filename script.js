@@ -295,3 +295,9 @@ const numberSort = [3000, -650, -200, -130, 70, 900, 350, 1300];
 numberSort.sort((a, b) => a - b);
 
 console.log(numberSort);
+
+//Create empty array using fill
+const x = new Array(7);
+console.log(x);
+x.fill(1, 3, 5);
+console.log(x);
