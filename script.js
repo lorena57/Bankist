@@ -305,3 +305,9 @@ console.log(x);
 //Create an array using from
 const y = Array.from({ length: 7 }, () => 1);
 console.log(y);
+
+//Create an array with a call back function
+//it creates an array 1 thru 7
+const z = Array.from({ length: 7 }, (curr, i) => i + 1);
+
+console.log(z);
