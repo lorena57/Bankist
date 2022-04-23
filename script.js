@@ -301,3 +301,7 @@ const x = new Array(7);
 console.log(x);
 x.fill(1, 3, 5);
 console.log(x);
+
+//Create an array using from
+const y = Array.from({ length: 7 }, () => 1);
+console.log(y);
