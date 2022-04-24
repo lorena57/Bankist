@@ -310,4 +310,12 @@ console.log(y);
 //it creates an array 1 thru 7
 const z = Array.from({ length: 7 }, (curr, i) => i + 1);
 
-console.log(z);
+// console.log(z);
+
+labelBalance.addEventListener('click', function () {
+  const movementsUI = Array.from(
+    document.querySelectorAll('.movements__value')
+  );
+
+  console.log(movementsUI.map((el) => el.textContent.replace('$', '')));
+});
