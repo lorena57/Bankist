@@ -312,6 +312,7 @@ const z = Array.from({ length: 7 }, (curr, i) => i + 1);
 
 // console.log(z);
 
+//Create an array using Array.from
 labelBalance.addEventListener('click', function () {
   const movementsUI = Array.from(
     document.querySelectorAll('.movements__value')
