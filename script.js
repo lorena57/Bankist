@@ -321,6 +321,14 @@ labelBalance.addEventListener('click', function () {
   console.log(movementsUI.map((el) => el.textContent.replace('$', '')));
 });
 
-const bankDepositSum = accounts.map((acc) => acc.movements).flat();
+//Flatten an array
+// const bankDepositSum = accounts.map((acc) => acc.movements).flat();
+
+//Or to simplify I can
+
+const bankDepositSum = accounts
+  .flatMap((acc) => acc.movements)
+  .filter((mov) => mov > 0)
+  .reduce((sum, cur) => sum + cur, 0);
 
 console.log(bankDepositSum);
