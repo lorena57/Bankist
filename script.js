@@ -320,3 +320,7 @@ labelBalance.addEventListener('click', function () {
 
   console.log(movementsUI.map((el) => el.textContent.replace('$', '')));
 });
+
+const bankDepositSum = accounts.map((acc) => acc.movements).flat();
+
+console.log(bankDepositSum);
