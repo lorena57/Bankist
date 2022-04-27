@@ -332,3 +332,9 @@ const bankDepositSum = accounts
   .reduce((sum, cur) => sum + cur, 0);
 
 console.log(bankDepositSum);
+
+//function to show how many deposits are greater than 1k
+const numDeposits = accounts
+  .flatMap((acc) => acc.movements)
+  .filter((mov) => mov > 1000).length;
+console.log(numDeposits);
