@@ -338,3 +338,13 @@ const numDeposits = accounts
   .flatMap((acc) => acc.movements)
   .filter((mov) => mov > 1000).length;
 console.log(numDeposits);
+
+//using reduce to how how many deposits
+//function to show how many deposits are greater than 1k
+
+const numDepositsReduce = accounts
+  .flatMap((acc) => acc.movements)
+  .reduce((count, cur) => (cur >= 1000 ? (count = 1) : count), 0);
+console.log(numDepositsReduce);
+
+console.log(numDeposits);
