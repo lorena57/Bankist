@@ -348,3 +348,13 @@ const numDepositsReduce = accounts
 console.log(numDepositsReduce);
 
 console.log(numDeposits);
+
+const sums = accounts
+  .flatMap((acc) => acc.movements)
+  .reduce(
+    (sums, cur) => {
+      cur > 0 ? (sums.deposits += cur) : (sums.withdrawls += cur);
+      return sums;
+    },
+    { deposits: 0, withdrawls: 0 }
+  );
