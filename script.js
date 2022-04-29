@@ -367,9 +367,26 @@ const sums = accounts
 console.log(sums);
 
 const convertTitleCase = function (title) {
-  const exceptions = ['a', 'an', 'the', 'but', 'or', 'on', 'in', 'with'];
+  const exceptions = [
+    'a',
+    'an',
+    'the',
+    'but',
+    'or',
+    'on',
+    'in',
+    'with',
+    'this',
+  ];
 
-  const titleCase = title.toLowerCase();
+  const titleCase = title
+    .toLowerCase()
+    .split(' ')
+    .map((word) =>
+      exceptions.includes(word) ? word : word[0].toUpperCase() + word.slice(1)
+    )
+    .join(' ');
+  return titleCase;
 };
 
 console.log(convertTitleCase('this is a long title'));
