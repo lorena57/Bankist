@@ -365,3 +365,12 @@ const sums = accounts
   );
 
 console.log(sums);
+
+const convertTitleCase = function (title) {
+  const exceptions = ['a', 'an', 'the', 'but', 'or', 'on', 'in', 'with'];
+
+  const titleCase = title.toLowerCase();
+};
+
+console.log(convertTitleCase('this is a long title'));
+console.log(convertTitleCase('just testing this bad boy out'));
