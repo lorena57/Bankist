@@ -146,7 +146,7 @@ btnLogin.addEventListener('click', function (e) {
     (acc) => acc.username === inputLoginUsername.value
   );
   console.log(currentAccount);
-  if (currentAccount?.pin === Number(inputLoginPin.value)) {
+  if (currentAccount?.pin === +inputLoginPin.value) {
     console.log('LOGIN');
 
     labelWelcome.textContent = `Welcome back, ${
@@ -168,7 +168,7 @@ btnLogin.addEventListener('click', function (e) {
 
 btnTransfer.addEventListener('click', function (e) {
   e.preventDefault();
-  const amount = Number(inputTransferAmount.value);
+  const amount = +inputTransferAmount.value;
   const receiverAcc = accounts.find(
     (acc) => acc.username === inputTransferTo.value
   );
@@ -191,7 +191,7 @@ btnTransfer.addEventListener('click', function (e) {
 
 btnLoan.addEventListener('click', function (e) {
   e.preventDefault();
-  const amount = Number(inputLoanAmount.value);
+  const amount = +inputLoanAmount.value;
 
   if (
     amount > 0 &&
@@ -209,7 +209,7 @@ btnClose.addEventListener('click', function (e) {
 
   if (
     inputCloseUsername.value === currentAccount.username &&
-    Number(inputClosePin.value) === currentAccount.pin
+    +inputClosePin.value === currentAccount.pin
   ) {
     const index = accounts.findIndex(
       (acc) => acc.username === currentAccount.username
@@ -366,30 +366,28 @@ const sums = accounts
 
 console.log(sums);
 
-// const convertTitleCase = function (title) {
-//   const exceptions = [
-//     'a',
-//     'an',
-//     'the',
-//     'but',
-//     'or',
-//     'on',
-//     'in',
-//     'with',
-//     'this',
-//   ];
+const convertTitleCase = function (title) {
+  const exceptions = [
+    'a',
+    'an',
+    'the',
+    'but',
+    'or',
+    'on',
+    'in',
+    'with',
+    'this',
+  ];
 
-//   const titleCase = title
-//     .toLowerCase()
-//     .split(' ')
-//     .map((word) =>
-//       exceptions.includes(word) ? word : word[0].toUpperCase() + word.slice(1)
-//     )
-//     .join(' ');
-//   return titleCase;
-// };
-
-//
+  const titleCase = title
+    .toLowerCase()
+    .split(' ')
+    .map((word) =>
+      exceptions.includes(word) ? word : word[0].toUpperCase() + word.slice(1)
+    )
+    .join(' ');
+  return titleCase;
+};
 
 //To convert to a number
 console.log(Number('23'));
