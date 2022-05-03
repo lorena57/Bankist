@@ -394,3 +394,13 @@ console.log(Number('23'));
 // Or I can do as follows
 //When JS see '+' it will do type conversion
 console.log(+'23');
+
+//Parsing
+console.log(Number.parseInt('30px'));
+console.log(Number.parseInt('e23'));
+
+console.log(Number.parseFloat('2.5rem'));
+
+//Checking if value is a number
+console.log(Number.isFinite(20));
+console.log(Number.isFinite('20'));
