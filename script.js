@@ -392,5 +392,5 @@ const convertTitleCase = function (title) {
 //To convert to a number
 console.log(Number('23'));
 // Or I can do as follows
-//When JS see '+' it will do type coercion
+//When JS see '+' it will do type conversion
 console.log(+'23');
