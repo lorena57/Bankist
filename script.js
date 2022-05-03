@@ -366,33 +366,30 @@ const sums = accounts
 
 console.log(sums);
 
-const convertTitleCase = function (title) {
-  const exceptions = [
-    'a',
-    'an',
-    'the',
-    'but',
-    'or',
-    'on',
-    'in',
-    'with',
-    'this',
-  ];
+// const convertTitleCase = function (title) {
+//   const exceptions = [
+//     'a',
+//     'an',
+//     'the',
+//     'but',
+//     'or',
+//     'on',
+//     'in',
+//     'with',
+//     'this',
+//   ];
 
-  const titleCase = title
-    .toLowerCase()
-    .split(' ')
-    .map((word) =>
-      exceptions.includes(word) ? word : word[0].toUpperCase() + word.slice(1)
-    )
-    .join(' ');
-  return titleCase;
-};
+//   const titleCase = title
+//     .toLowerCase()
+//     .split(' ')
+//     .map((word) =>
+//       exceptions.includes(word) ? word : word[0].toUpperCase() + word.slice(1)
+//     )
+//     .join(' ');
+//   return titleCase;
+// };
 
-// console.log(convertTitleCase('this is a long title'));
-// console.log(convertTitleCase('just testing this bad boy out'));
-
-// console.log(23 === 23.0);
+//
 
 //To convert to a number
 console.log(Number('23'));
