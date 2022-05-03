@@ -389,5 +389,13 @@ const convertTitleCase = function (title) {
   return titleCase;
 };
 
-console.log(convertTitleCase('this is a long title'));
-console.log(convertTitleCase('just testing this bad boy out'));
+// console.log(convertTitleCase('this is a long title'));
+// console.log(convertTitleCase('just testing this bad boy out'));
+
+// console.log(23 === 23.0);
+
+//To convert to a number
+console.log(Number('23'));
+// Or I can do as follows
+//When JS see '+' it will do type coercion
+console.log(+'23');
